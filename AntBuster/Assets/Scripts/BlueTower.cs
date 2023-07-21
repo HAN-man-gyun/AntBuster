@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BlueTower : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class BlueTower : MonoBehaviour
     private int TowerPrice = 4;
 
     public GameObject ArrowPrefab = default;
-    private Transform target = default;
+    public Transform target = default;
     private float spawnRate = 1f;
     private float timeAfterSpawn = default;
 
@@ -44,5 +45,9 @@ public class BlueTower : MonoBehaviour
                 Arrow.transform.LookAt(target);
             }
         }
+    }
+    public Transform GetTarget()
+    {
+        return target;
     }
 }

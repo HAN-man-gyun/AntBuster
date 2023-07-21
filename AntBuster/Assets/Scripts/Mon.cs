@@ -9,22 +9,19 @@ public class Mon : MonoBehaviour
     public int antHealth = 4;
     public float antSpeed = 5f;
 
+    private Rigidbody Monrigidbody = default;
 
-
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.tag == "TowerArrow")
-        {
-            //antHealth = antHealth - other.gameObject; 
-        }
-        else
-        {
-
-        }
+        Monrigidbody = GetComponent<Rigidbody>();
+        Monrigidbody.velocity = Vector3.forward * antSpeed;
     }
+
+
 
     public void Die()
     {
+        Debug.Log("ав╬З╢ы");
         gameObject.SetActive(false);
     }
 }
