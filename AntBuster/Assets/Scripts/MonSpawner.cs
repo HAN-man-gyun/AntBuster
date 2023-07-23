@@ -26,6 +26,7 @@ public class MonSpawner : MonoBehaviour
             timeAfterSpawn = 0;
             GameObject Mon = Instantiate(MonPrefab, transform.position, transform.rotation);
             MonCount++;
+            Statics.monsterCount++;
         }
     }
 }
