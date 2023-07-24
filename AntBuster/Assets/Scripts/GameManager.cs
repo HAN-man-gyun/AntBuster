@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text timeText2;
     public TMP_Text stageText2;
     public TMP_Text goldText2;
+    public TMP_Text lifeText;
     private int icePrice = 50;
     private int firePrice = 50;
     [Header("2")]
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("초기화가 됐니?");
             MonSpawner.instance.monCount = 0;
-            Statics.time = 20;
+            Statics.time = 99;
             Statics.stage += 1;
             Statics.life -= Statics.monsterCount;
             Statics.monsterCount = 0;
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         goldText1.text = "GOLD : " + Statics.gold.ToString();
         goldText2.text = "GOLD : " + Statics.gold.ToString();
 
+        lifeText.text = "LIFE : " + Statics.life.ToString();
         monsterCount.text = "Monster : " + Statics.monsterCount.ToString();
     }
 }

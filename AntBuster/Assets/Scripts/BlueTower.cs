@@ -6,8 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 public class BlueTower : MonoBehaviour
 {
     [Header("Tower Status")]
-    private string TowerName = "iceTower";
-    private int TowerPrice = 4;
+   /* private string TowerName = "iceTower";
+    private int TowerPrice = 4;*/
 
     public GameObject ArrowPrefab = default;
     public Transform target = default;

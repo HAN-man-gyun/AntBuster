@@ -63,7 +63,7 @@ public class MonSpawner : MonoBehaviour
                 Statics.monsterCount++;
                 monCount++;
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
         }
         
     }

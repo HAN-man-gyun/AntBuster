@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Mon : MonoBehaviour
 {
     static public Mon instance;
+
+    public GameObject healthBar;
     [Header("Ant Status")]
-    public int antLevel = 1;
-    public int antHealth = 4;
+    public float antHealth = 0;
     public float antSpeed = 20f;
 
     private Rigidbody Monrigidbody = default;
 
     private void OnEnable()
     {
-        Debug.Log("위치를 초기화한다");
-
-        //transform.rotation = Quaternion.identity;
+        antHealth = Statics.MaxHp;
     }
     private void Start()
     {
@@ -30,15 +30,14 @@ public class Mon : MonoBehaviour
 
     private void Update()
     {
-        
+        healthBar.GetComponent<Image>().fillAmount = antHealth / Statics.MaxHp;
     }
     public void Die()
     {
         // 몬스터가 죽었을 때의 상태를 초기화한다.
 
         Debug.Log("죽었다");
-        //transform.Rotate(Vector3.up,-180 ,Space.World);
-        //transform.Rotate(0, 90, 0);
+
         Debug.LogFormat("죽을 때 몬스터의 Rotation Before : {0}", gameObject.transform.rotation.eulerAngles);
         gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
         Monrigidbody.velocity = Vector3.forward * antSpeed;

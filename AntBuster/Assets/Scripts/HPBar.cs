@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HPBar : MonoBehaviour
 {
-    [SerializeField] GameObject hpPrefab =default(GameObject);
+    GameObject hpPrefab =default(GameObject);
 
     List<Transform> transObjectList = new List<Transform>();
     List<GameObject> hpBarList = new List<GameObject>();
@@ -16,6 +16,7 @@ public class HPBar : MonoBehaviour
         GameObject[] targetObjects = GameObject.FindGameObjectsWithTag("Monster");
         for(int i=0; i<targetObjects.Length; i++)
         {
+            Debug.LogFormat("{0}",i);
             transObjectList.Add(targetObjects[i].transform);
             GameObject  transHpBar = Instantiate(hpPrefab, targetObjects[i].transform.position,Quaternion.identity,transform);
             hpBarList.Add(transHpBar);
