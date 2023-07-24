@@ -36,15 +36,29 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Statics.time == 0)
+        Statics.time -= Time.deltaTime;
+        if (Statics.time <= 0)
         {
-            Statics.time = 60;
+            Debug.Log("초기화가 됐니?");
+            MonSpawner.instance.monCount = 0;
+            Statics.time = 20;
             Statics.stage += 1;
-            
+            Statics.life -= Statics.monsterCount;
+            Statics.monsterCount = 0;
+            foreach (GameObject activeObject in MonSpawner.instance.Rest)
+            {
+                if (activeObject.activeSelf)
+                {
+                    activeObject.SetActive(false);
+                    activeObject.transform.rotation = Quaternion.Euler(Vector3.zero);
+                    Rigidbody rb = activeObject.GetComponent<Rigidbody>();
+                    rb.velocity = Vector3.forward* 10;
+                    MonSpawner.instance.InsertQueue(activeObject);
+                }
+            }
         }
         if (Statics.time > 0)
         {
-            Statics.time -= Time.deltaTime;
             timeText2.text = "TIME : " + Mathf.Ceil(Statics.time).ToString();
             timeText1.text = "TIME : " + Mathf.Ceil(Statics.time).ToString();
         }

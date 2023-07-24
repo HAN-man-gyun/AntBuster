@@ -21,7 +21,7 @@ public class HPBar : MonoBehaviour
             hpBarList.Add(transHpBar);
         }
     }
-    // 이방법은 오브젝트 풀링을 사용해야만 적용할수있다.
+    // 이방법은 오브젝트 풀링을 사용해야만 적용할수있다???
     // 오브젝트가 
     // Update is called once per frame
     void Update()

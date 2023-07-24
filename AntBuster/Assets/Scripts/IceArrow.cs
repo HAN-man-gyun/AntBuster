@@ -32,7 +32,7 @@ public class IceArrow : MonoBehaviour
             {
                 monster.Die();
             }
-            
+            Destroy(gameObject);
         }
     }
 }

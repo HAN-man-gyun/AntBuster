@@ -6,15 +6,23 @@ using UnityEngine.UIElements;
 
 public class Mon : MonoBehaviour
 {
+    static public Mon instance;
     [Header("Ant Status")]
     public int antLevel = 1;
     public int antHealth = 4;
-    public float antSpeed = 5f;
+    public float antSpeed = 20f;
 
     private Rigidbody Monrigidbody = default;
 
+    private void OnEnable()
+    {
+        Debug.Log("위치를 초기화한다");
+
+        //transform.rotation = Quaternion.identity;
+    }
     private void Start()
     {
+        instance = this;
         Monrigidbody = GetComponent<Rigidbody>();
         Monrigidbody.velocity = Vector3.forward * antSpeed;
     }
@@ -26,9 +34,20 @@ public class Mon : MonoBehaviour
     }
     public void Die()
     {
+        // 몬스터가 죽었을 때의 상태를 초기화한다.
+
         Debug.Log("죽었다");
-        Destroy(gameObject);
+        //transform.Rotate(Vector3.up,-180 ,Space.World);
+        //transform.Rotate(0, 90, 0);
+        Debug.LogFormat("죽을 때 몬스터의 Rotation Before : {0}", gameObject.transform.rotation.eulerAngles);
+        gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
+        Monrigidbody.velocity = Vector3.forward * antSpeed;
+        Debug.LogFormat("죽을 때 몬스터의 Rotation After : {0}", gameObject.transform.rotation.eulerAngles);
+        MonSpawner.instance.InsertQueue(gameObject);
+        gameObject.SetActive(false);
+        
         Statics.monsterCount--;
+
     }
 
     public void OnTriggerEnter(Collider other)

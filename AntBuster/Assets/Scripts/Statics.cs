@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Statics : MonoBehaviour
 {
-    static public float time = 60;
+    static public int life = 20;
+    static public float time = 20;
     static public int stage =1;
     static public int gold = 100;
     static public int monsterCount = 0;

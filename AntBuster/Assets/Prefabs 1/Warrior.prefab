@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antLevel: 1
   antHealth: 4
-  antSpeed: 5
+  antSpeed: 10
 --- !u!1001 &1830868263144752081
 PrefabInstance:
   m_ObjectHideFlags: 0

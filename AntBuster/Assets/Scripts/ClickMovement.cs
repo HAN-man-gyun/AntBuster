@@ -64,10 +64,7 @@ public class ClickMovement : MonoBehaviour
             var dir = new Vector3(agent.steeringTarget.x,transform.position.y,agent.steeringTarget.z)-transform.position;
             animator.transform.forward = dir;
             //transform.position += dir.normalized * Time.deltaTime * 5f;
-            
         }
-
-       
     }
 
     private void OnTriggerEnter(Collider other)
