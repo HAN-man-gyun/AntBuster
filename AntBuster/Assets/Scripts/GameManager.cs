@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         Statics.time -= Time.deltaTime;
         if (Statics.time <= 0)
-        {
+        {//타임이 0보다 작아져서 다음스테이지로 넘어가야할때
             Debug.Log("초기화가 됐니?");
             MonSpawner.instance.monCount = 0;
             Statics.time = 99;
@@ -48,14 +48,18 @@ public class GameManager : MonoBehaviour
             Statics.monsterCount = 0;
             Statics.MaxHp *= 1.1f;
             foreach (GameObject activeObject in MonSpawner.instance.Rest)
-            {
+            {//instance.Rest의 있는 오브젝트 activeObject
                 if (activeObject.activeSelf)
-                {
+                {//만약 오브젝트가 아직 죽지않고 활성화된상태라면
                     activeObject.SetActive(false);
+                    //비활성화시키고
                     activeObject.transform.rotation = Quaternion.Euler(Vector3.zero);
+                    //로테이션값을 원래대로 돌리고
                     Rigidbody rb = activeObject.GetComponent<Rigidbody>();
                     rb.velocity = Vector3.forward* 10;
+                    //벡터값을 원래대로 돌리고
                     MonSpawner.instance.InsertQueue(activeObject);
+                    //다시 큐에 집어넣는다.
                 }
             }
         }
