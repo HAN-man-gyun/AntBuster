@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-public class IceArrow : MonoBehaviour
+public class FireArrow : MonoBehaviour
 {
     private float speed = 100f;
     private Rigidbody rigid = default;

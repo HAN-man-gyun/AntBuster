@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text stageText2;
     public TMP_Text goldText2;
     public TMP_Text lifeText;
-    private int icePrice = 50;
-    private int firePrice = 50;
+    private int icePrice = 100;
+    private int firePrice = 100;
     [Header("2")]
     public TMP_Text timeText1;
     public TMP_Text stageText1;
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
             Statics.stage += 1;
             Statics.life -= Statics.monsterCount;
             Statics.monsterCount = 0;
+            Statics.MaxHp *= 1.1f;
             foreach (GameObject activeObject in MonSpawner.instance.Rest)
             {
                 if (activeObject.activeSelf)

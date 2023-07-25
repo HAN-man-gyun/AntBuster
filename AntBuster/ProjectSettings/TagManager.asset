@@ -8,6 +8,8 @@ TagManager:
   - Turn
   - Portal Camera
   - Shop
+  - IceTower
+  - FireTower
   layers:
   - Default
   - TransparentFX

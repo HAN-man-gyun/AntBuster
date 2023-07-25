@@ -44,7 +44,7 @@ public class Mon : MonoBehaviour
         Debug.LogFormat("죽을 때 몬스터의 Rotation After : {0}", gameObject.transform.rotation.eulerAngles);
         MonSpawner.instance.InsertQueue(gameObject);
         gameObject.SetActive(false);
-        
+        Statics.gold += 10;
         Statics.monsterCount--;
 
     }
